@@ -1,0 +1,44 @@
+# case 1
+#sudo apt -get install python 3
+# pip install gpiozero
+from gpiozero import LED
+import time
+led=LED(7)
+led.on()
+time.sleep(5)
+led.off()
+
+
+#case2
+#sudo apt -get install python 3
+# pip install gpiozero
+from gpiozero import LED
+import time
+k=float(input("Sleep for : "))
+led_1=LED(17)
+while True:
+	led_1.on()
+	time.sleep(k)
+	led_1.off()
+	time.sleep(k)
+
+
+
+
+
+#case3
+#sudo apt -get install python 3
+# pip install gpiozero
+k=float(input("Sleep for : "))
+led_1=LED(17)
+led_2=LED(27)
+led_3=LED(22)
+while True:
+	led_1.on()
+	led_2.on()
+	led_3.on()
+	time.sleep(k)
+	led_1.off()
+	led_2.off()
+	led_3.off()
+	time.sleep(k)

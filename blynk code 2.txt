@@ -1,0 +1,31 @@
+import BlynkLib
+import RPi.GPIO as GPIO
+from BlynkTimer import BlynkTimer
+BLYNK_AUTH_TOKEN="_ri-oNbAEM9eQoHpmSE3IgNn8dnLe--r"
+led1=37
+led2=35
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led1,GPIO.OUT)
+GPIO.setup(led2,GPIO.OUT)
+blynk=BlynkLib.Blynk(BLYNK_AUTH_TOKEN)
+@blynk.on("V0")
+def v0_write_handler(value):
+	if int(value[0]) is not 0:
+  	GPIO.output(led1,GPIO.HIGH)
+    print("LED1 HIGH")
+  else
+  	GPIO.output(led1,GPIO.LOW)
+    print("LED1 LOW")
+@blynk.on("V1")
+def v1_write_handler(value):
+	if int(value[0]) is not 0:
+  	GPIO.output(led2,GPIO.HIGH)
+    print("LED2 HIGH")
+  else
+  	GPIO.output(led2,GPIO.LOW)
+    print("LED2 LOW")
+@blynk.on("connected")
+def blynk_connected():
+	print("Raspberry pi connected to new blynk")
+while True:
+	blynk.run()
